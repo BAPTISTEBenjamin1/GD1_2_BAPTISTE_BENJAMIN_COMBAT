@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main(){
+
+int pv = 5;
+int pvmax = 5;
+int pvjoueur = 10;
+int pvmaxjoueur = 10;
+int atk = 1;
+int i = 5;
+
+//Déclaration du début de combat//
+printf("==============================================\n");
+printf("Un Gobelin engage le combat ! Il a %d/%d points de vie\n",pv,pvmax);
+printf("==============================================\n"); 
+    
+
+
+//Pour tuer le monstre en l'attaquant 5 fois
+for(i=5;i!=0;i--)
+{
+    
+pv=pv-1;
+    
+pvjoueur=pvjoueur-1;
+    
+printf("Vous l'attaquez\n");
+printf("Le monstre est a %d/%d points de vie\n",pv,pvmax);
+printf("Zut, il contre-attaque, vous perdez des points de vie : %d/%d points de vie\n",pvjoueur,pvmaxjoueur);
+
+    if(pv==0)
+{
+    printf("==========================\n");   
+    printf("Bravo, le Gobelin est mort\n");break;
+}
+
+    
+    
+    }
+ }
+
