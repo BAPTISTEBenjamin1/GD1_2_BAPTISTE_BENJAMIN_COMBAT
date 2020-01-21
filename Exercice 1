@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(){
+
+for(pv=5;pv>-1;pv--){
+    
+ 
+    
+    printf("Vous infligez 1 blessure au monstre : %d/%d.\n",pv,pvmax);  
+   pvjoueur--;
+    printf("Zut, il replique ! Vous perdez 1 point de vie :");
+    printf("%d/%d\n",pvjoueur,pvmaxjoueur); 
+    
+    }
