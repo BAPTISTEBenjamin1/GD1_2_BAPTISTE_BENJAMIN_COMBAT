@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main(){
+
+int pv = 5;
+int pvmax = 5;
+int atk = 1;
+
+//Déclaration du début de combat//
+printf("==============================================\n");
+printf("Un Gobelin engage le combat ! Il a %d/%d points de vie\n",pv,pvmax);
+printf("==============================================\n"); 
+
+    
+    for(pv=5;pv>0;pv--)
+    {
+    
+    pv--;
+        
+     //Description de l'attaque + Mise à jour des points de vie//
+    printf("Vous l'attaquez et lui infligez %d point de degat\n",atk);
+    printf("Le monstre est a %d/%d points de vie\n",pv,pvmax);
+
+    }
+
+}
