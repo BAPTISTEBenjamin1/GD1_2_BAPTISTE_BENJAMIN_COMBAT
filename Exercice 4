@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+int main(){
+
+int pv = 40; //J'ai tenté de déclarer la variable en float pour garder mes anciennes valeurs mais j'ai pas trouvé de solutions qui fonctionne.
+int pvmax = 40;
+int pvjoueur = 40;
+int pvmaxjoueur = 40;
+int atk = 12;
+int atkdef = 3;
+int i = 5;
+int choix= 2;
+    
+
+
+//Déclaration du début de combat//
+printf("==============================================\n");
+printf("Un Gobelin engage le combat ! Il a %d/%d points de vie\n",pv,pvmax);
+printf("==============================================\n"); 
+
+    while(choix==2){
+
+        printf("===============\n");
+        printf("Attaquer : 1\n");
+        printf("Se Defendre : 0\n");
+        printf("================\n");  
+
+        scanf("%d",&choix);
+        printf("%d\n",choix);
+    
+        if(choix==1){
+
+            pv=pv-atk;    
+
+            printf("Vous l'attaquez!\n");
+            printf("Le monstre est a %d/%d points de vie\n",pv,pvmax);
+            
+            pvjoueur=pvjoueur-atk;
+            
+            printf("Zut, il contre-attaque, vous perdez des points de vie : %d/%d points de vie\n",pvjoueur,pvmaxjoueur);
+
+            choix=choix+1;
+
+                    if(pv<=0){
+
+                        printf("==========================================================================\n");   
+                        printf("Bravo, le Gobelin est mort\n");break;
+                    
+                    
+                            }
+
+                    }
+        
+                if(choix==0){
+
+                    printf("Vous vous défendez !\n");
+
+                    pvjoueur=pvjoueur-atkdef;
+
+                    printf("Le monstre vous attaque, mais votre garde pare une partie des degats: %d/%d points de vie\n",pvjoueur,pvmaxjoueur);
+                    printf("Le monstre est a %d/%d points de vie\n",pv,pvmax);
+
+                    choix=choix+2;
+                
+                    if(pvjoueur<=0){
+
+                        printf("==========================================================================\n");   
+                        printf("Vous succombez a vos blessures c'est un GAME OVER\n");break;
+
+                                    }
+                            }
+    
+                    }
+    
+    
