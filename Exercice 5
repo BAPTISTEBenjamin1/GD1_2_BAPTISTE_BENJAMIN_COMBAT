@@ -1,0 +1,112 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+int pv = 40; //J'ai tenté de déclarer la variable en float pour garder mes anciennes valeurs mais j'ai pas trouvé de solutions qui fonctionne.
+int pvmax = 40;
+int pvjoueur = 40;
+int pvmaxjoueur = 40;
+int atk = 12;
+int atkdef = 3;
+int i = 5;
+int choix= 2;
+int choixmonstre = 0 ;
+    
+
+
+//Déclaration du début de combat//
+printf("==============================================\n");
+printf("Un Gobelin engage le combat ! Il a %d/%d points de vie\n",pv,pvmax);
+printf("==============================================\n"); 
+
+    
+        while(choix==2){
+
+        printf("===============\n");
+        printf("Attaquer : 1\n");
+        printf("Se Defendre : 0\n");
+        printf("================\n");  
+
+        scanf("%d",&choix);
+        
+    
+        if(choix==1){
+
+               
+
+            printf("Vous l'attaquez!\n");
+            printf("Le monstre est a %d/%d points de vie\n",pv,pvmax);
+            
+            /*fonction servant à attribuer une valeur aléatoire à la valeur choixmonstre, déterminant son attitude pendant un échange d'action*/
+            
+            srand((unsigned)time(NULL));
+            choixmonstre=(rand() % (2));
+            printf("%d",choixmonstre);
+            
+                    if(choixmonstre==1){
+                        
+                        pv=pv-atk; 
+                        pvjoueur=pvjoueur-atk;
+                        
+                        printf("Vous l'attaquez!\n");
+                        printf("Le monstre est a %d/%d points de vie\n",pv,pvmax);
+                        printf("Zut, il contre-attaque, vous perdez des points de vie : %d/%d points de vie\n",pvjoueur,pvmaxjoueur);
+                    }
+            
+                    if(choixmonstre==0){
+                        
+                        pv=pv-atkdef;
+                        
+                        printf("Le monstre se protège, il subit moins de degats\n",pv,pvmax);
+                    }    
+
+            choix=choix+1;
+
+                    if(pv<=0){
+
+                        printf("==========================================================================\n");   
+                        printf("Bravo, le Gobelin est mort\n");break;
+                    
+                    
+                            }
+
+                    }
+        
+                if(choix==0){
+                    
+                    srand((unsigned)time(NULL));
+                    choixmonstre=(rand() % (2));
+                    printf("%d",choixmonstre);
+                    
+                    if(choixmonstre==1){
+                        
+                        pvjoueur=pvjoueur-atkdef; 
+                        
+                        
+                        printf("Vous vous défendez !\n");
+                        printf("Le monstre vous attaque, mais votre garde pare une partie des degats: %d/%d points de vie\n",pvjoueur,pvmaxjoueur);
+                    }
+                    
+                    if(choixmonstre==0){
+                        
+                        printf("Vous vous défendez !\n");
+                        printf("Le monstre se protège aussi, la tension est palpable, vous vous regardez dans le blanc des yeux\n");
+                    }
+                   
+
+                    choix=choix+2;
+                
+                    if(pvjoueur<=0){
+
+                        printf("==========================================================================\n");   
+                        printf("Vous succombez a vos blessures c'est un GAME OVER\n");break;
+
+                                    }
+                            }
+    
+                    }
+    
+    
+    
